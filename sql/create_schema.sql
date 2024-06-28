@@ -55,6 +55,14 @@ CREATE TABLE product_join_category (
     FOREIGN KEY (id_product) REFERENCES products_catalog(id) ON DELETE CASCADE
 );
 
+CREATE TABLE reject_products (
+    product_name VARCHAR(64) NOT NULL,
+    brand_name VARCHAR(64) NOT NULL,
+    quantity INT,
+    PRIMARY KEY (product_name, brand_name)
+);
+
+
 CREATE OR REPLACE PROCEDURE count_total_products_by_brand(IN brand VARCHAR, OUT response INTEGER)
 LANGUAGE plpgsql
 AS $$
@@ -65,3 +73,6 @@ BEGIN
     GROUP BY brand_name;
 END;
 $$;
+
+
+

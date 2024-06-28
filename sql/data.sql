@@ -67,16 +67,16 @@ INSERT INTO products_catalog (launching_date, brand_name, product_name, descript
     (random_date(3000), 'Adidas', 'backpack A', 'for enjoy in  office and home', 23.00, 5, TRUE),
     (random_date(3000), 'Champion', 'backpack c', 'for office nad home', 16.89, 5, FALSE),
     (random_date(3000), 'Nintendo', 'Switch', 'console for home', 1100.89, 8, FALSE),
-    (random_date(3000), 'Gibson', 'Guitarra acústica - home', 'Guitarra acústica para el hogar', 2800.99, 9, FALSE),
-    (random_date(3000), 'Yamaha', 'Piano digital - home', 'Piano digital para el hogar', 4500.89, 8, TRUE),
-    (random_date(3000), 'Roland', 'Batería electrónica - home', 'Batería electrónica para el hogar', 5200.79, 7, FALSE),
-    (random_date(3000), 'Dell', 'Laptop Inspiron', 'Laptop para el hogar', 3900.67, 6, FALSE),
-    (random_date(3000), 'HP', 'Laptop Pavilion', 'Laptop para la oficina', 4100.89, 7, TRUE),
-    (random_date(3000), 'Samsung', 'TV QLED 55"', 'TV para el hogar', 1200.99, 9, FALSE),
-    (random_date(3000), 'Sony', 'TV OLED 65"', 'TV para el hogar', 2500.79, 10, FALSE),
-    (random_date(3000), 'BenQ', 'Monitor 32"', 'Monitor para hogar y oficina', 300.89, 8, FALSE),
-    (random_date(3000), 'Asus', 'Monitor 27" Gamer', 'Monitor para hogar y oficina', 450.99, 9, TRUE),
-    (random_date(3000), 'HP', 'PC de escritorio', 'PC para la oficina', 455.99, 9, TRUE);
+    (random_date(3000), 'Gibson', 'Guitarra acústica - home', 'Guitar for home', 2800.99, 9, FALSE),
+    (random_date(3000), 'Yamaha', 'Piano digital - home', 'For home', 4500.89, 8, TRUE),
+    (random_date(3000), 'Roland', 'Batería electrónica - home', 'Drums home', 5200.79, 7, FALSE),
+    (random_date(3000), 'Dell', 'Laptop Inspiron', 'home', 3900.67, 6, FALSE),
+    (random_date(3000), 'HP', 'Laptop Pavilion', 'office', 4100.89, 7, TRUE),
+    (random_date(3000), 'Samsung', 'TV QLED 55"', 'TV home', 1200.99, 9, FALSE),
+    (random_date(3000), 'Sony', 'TV OLED 65"', 'TV office', 2500.79, 10, FALSE),
+    (random_date(3000), 'BenQ', 'Monitor 32"', 'home and office', 300.89, 8, FALSE),
+    (random_date(3000), 'Asus', 'Monitor 27" Gamer', 'home and office', 450.99, 9, TRUE),
+    (random_date(3000), 'HP', 'PC de escritorio', 'PC for office', 455.99, 9, TRUE);
 
 
 INSERT INTO categories (code, description) VALUES
