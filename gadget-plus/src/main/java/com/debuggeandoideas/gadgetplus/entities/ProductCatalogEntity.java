@@ -34,7 +34,6 @@ public class ProductCatalogEntity {
     private Short rating;
     @ManyToMany(fetch = FetchType.EAGER, cascade = {
             CascadeType.DETACH,
-            CascadeType.MERGE,
             CascadeType.PERSIST,
             CascadeType.REFRESH})
     @JoinTable(

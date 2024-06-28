@@ -44,7 +44,8 @@ public class GadgetPlusApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-		this.rejectProductRepository.findAll().forEach(System.out::println);
+		//this.orderRepository.findAll().forEach(p -> System.out.println(p + p.getProducts().toString()));
+
 
 		/*final var HOME = this.categoryRepository.findById(1L).orElseThrow();
 		final var OFFICE = this.categoryRepository.findById(2L).orElseThrow();
@@ -60,10 +61,9 @@ public class GadgetPlusApplication implements CommandLineRunner {
 			}
 
 			this.productCatalogRepository.save(product);
-		});*/
+		});
 
-		/*var random = new Random();
-
+		var random = new Random();
 
 
 		var productsCatalog = new LinkedList<>(this.productCatalogRepository.findAll());
@@ -82,8 +82,6 @@ public class GadgetPlusApplication implements CommandLineRunner {
 
 			this.orderRepository.save(orderRandom);
 		});*/
-
-
 
 	}
 }
