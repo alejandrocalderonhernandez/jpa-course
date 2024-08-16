@@ -1,6 +1,5 @@
 package com.debuggeandoideas.gadgetplus;
 
-import com.debuggeandoideas.gadgetplus.entities.CategoryEntity;
 import com.debuggeandoideas.gadgetplus.entities.ProductEntity;
 import com.debuggeandoideas.gadgetplus.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +9,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.math.BigInteger;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Random;
 import java.util.stream.IntStream;
 
@@ -43,9 +41,6 @@ public class GadgetPlusApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-
-		//this.orderRepository.findAll().forEach(p -> System.out.println(p + p.getProducts().toString()));
-
 
 		/*final var HOME = this.categoryRepository.findById(1L).orElseThrow();
 		final var OFFICE = this.categoryRepository.findById(2L).orElseThrow();

@@ -8,10 +8,13 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 
-@Entity
-@Table(name = "products_catalog")
+@Entity(name = "productCatalog")
+@Table(name = "products_catalog", indexes = {
+        @Index(name = "idx_product_name", columnList = "product_name"),
+})
 @Getter
 @Setter
 @ToString
@@ -26,7 +29,7 @@ public class ProductCatalogEntity {
     @Column(name = "product_name", length = 64)
     private String name;
     @Column(name = "brand_name", length = 64)
-    private String brad;
+    private String brand;
     private String description;
     private BigDecimal price;
     private LocalDate launchingDate;
@@ -46,5 +49,4 @@ public class ProductCatalogEntity {
     public void addCategory(CategoryEntity category) {
         this.categories.add(category);
     }
-
 }
