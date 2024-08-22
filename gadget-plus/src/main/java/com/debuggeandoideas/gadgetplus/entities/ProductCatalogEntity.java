@@ -3,12 +3,10 @@ package com.debuggeandoideas.gadgetplus.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
-import javax.lang.model.element.Name;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Objects;
 import java.util.UUID;
 
 @Entity(name = "productCatalog")
@@ -46,7 +44,6 @@ public class ProductCatalogEntity {
     )
     private List<CategoryEntity> categories = new LinkedList<>();
 
-    public void addCategory(CategoryEntity category) {
-        this.categories.add(category);
-    }
+
+
 }

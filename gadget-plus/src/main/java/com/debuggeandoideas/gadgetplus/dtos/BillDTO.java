@@ -1,6 +1,5 @@
 package com.debuggeandoideas.gadgetplus.dtos;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,7 +13,7 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 public class BillDTO {
 
-    private String id;
+    private String idBill;
     private String clientRfc;
-    private BigDecimal amount;
+    private BigDecimal totalAmount;
 }
