@@ -2,6 +2,7 @@ package com.debuggeandoideas.gadgetplus;
 
 import com.debuggeandoideas.gadgetplus.entities.ProductEntity;
 import com.debuggeandoideas.gadgetplus.repositories.*;
+import com.debuggeandoideas.gadgetplus.services.CatalogBatch;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -33,6 +34,8 @@ public class GadgetPlusApplication implements CommandLineRunner {
 	@Autowired
 	private RejectProductRepository rejectProductRepository;
 
+	@Autowired
+	private CatalogBatch catalogBatch;
 
 	public static void main(String[] args) {
 		SpringApplication.run(GadgetPlusApplication.class, args);
@@ -42,7 +45,13 @@ public class GadgetPlusApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-		/*final var HOME = this.categoryRepository.findById(1L).orElseThrow();
+		/*this.catalogBatch.insertBatch();
+
+		Thread.sleep(10000);
+
+		this.catalogBatch.deleteBatch();*/
+
+		final var HOME = this.categoryRepository.findById(1L).orElseThrow();
 		final var OFFICE = this.categoryRepository.findById(2L).orElseThrow();
 
 		this.productCatalogRepository.findAll().forEach(product -> {
@@ -76,7 +85,7 @@ public class GadgetPlusApplication implements CommandLineRunner {
 			product.setOrder(orderRandom);
 
 			this.orderRepository.save(orderRandom);
-		});*/
+		});
 
 	}
 }

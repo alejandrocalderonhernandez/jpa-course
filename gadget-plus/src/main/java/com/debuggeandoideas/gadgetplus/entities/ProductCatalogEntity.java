@@ -44,6 +44,9 @@ public class ProductCatalogEntity {
     )
     private List<CategoryEntity> categories = new LinkedList<>();
 
+    public void addCategory(CategoryEntity category) {
+        this.categories.add(category);
+    }
 
 
 }

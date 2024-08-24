@@ -1,8 +1,11 @@
 package com.debuggeandoideas.gadgetplus.entities;
 
+import jakarta.annotation.PreDestroy;
 import jakarta.persistence.*;
 import lombok.*;
+import lombok.extern.slf4j.Slf4j;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +19,7 @@ import java.util.Objects;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@Slf4j
 public class OrderEntity {
 
     @Id
@@ -23,6 +27,10 @@ public class OrderEntity {
     private Long id;
     @Column(nullable = false)
     private LocalDateTime createdAt;
+
+    @Column(nullable = true)
+    private LocalDateTime lastUpdated;
+
     @Column(length = 32, nullable = false)
     private String clientName;
 
@@ -33,9 +41,12 @@ public class OrderEntity {
 
     @OneToMany(mappedBy = "order",
                              fetch = FetchType.EAGER,
-                             cascade = CascadeType.ALL,
+            cascade = CascadeType.ALL,
                              orphanRemoval = true)
     private List<ProductEntity> products = new ArrayList<>();
+
+    @Transient
+    private Boolean isSaved = false;
 
     public void addProduct(ProductEntity product) {
         this.products.add(product);
@@ -53,4 +64,41 @@ public class OrderEntity {
     public int hashCode() {
         return Objects.hashCode(id);
     }
+
+    @PrePersist
+    private void prePersist() {
+        this.setCreatedAt(LocalDateTime.now());
+        log.info("Pre persist {}", this.getCreatedAt().toString());
+    }
+
+    @PostPersist
+    private void postPersist() {
+        log.info("Post persist {}", this.getIsSaved());
+        this.setIsSaved(true);
+        log.info("Post persist {}", this.getIsSaved());
+    }
+
+
+    @PreUpdate
+    private void preUpdate() {
+        this.setLastUpdated(LocalDateTime.now());
+        log.info("Pre update {}", this.getLastUpdated().toString());
+    }
+
+    @PostUpdate
+    private void postUpdate() {
+        log.info("Post update {}", this.getLastUpdated().toString());
+    }
+
+    @PreRemove
+    private void preRemove() {
+        log.warn("Entity will be removed");
+        this.products = new ArrayList<>();
+    }
+
+    @PostRemove
+    private void postRemove() {
+        log.warn("Entity was removed");
+    }
+
 }

@@ -1,5 +1,3 @@
-version: '3.9'
-
 services:
 
   db:
@@ -15,3 +13,20 @@ services:
       - POSTGRES_PASSWORD=secret
     ports:
       - "5432:5432"
+
+
+
+  db2:
+    image: mariadb:latest
+    container_name: gadget_plus_maria_db
+    restart: always
+    volumes:
+      - ./sql/create_schema.sql:/docker-entrypoint-initdb.d/create_schema_maria_db.sql
+      - ./sql/data.sql:/docker-entrypoint-initdb.d/data_maria_db.sql
+    environment:
+      - MARIADB_DATABASE=gadget_plus
+      - MARIADB_USER=debuggeandoideas
+      - MARIADB_PASSWORD=secret
+      - MARIADB_ROOT_PASSWORD=secret
+    ports:
+      - "3306:3306"
