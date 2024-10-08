@@ -21,8 +21,7 @@ services:
     container_name: gadget_plus_maria_db
     restart: always
     volumes:
-      - ./sql/create_schema.sql:/docker-entrypoint-initdb.d/create_schema_maria_db.sql
-      - ./sql/data.sql:/docker-entrypoint-initdb.d/data_maria_db.sql
+      - ./sql/init.sql:/docker-entrypoint-initdb.d/init.sql
     environment:
       - MARIADB_DATABASE=gadget_plus
       - MARIADB_USER=debuggeandoideas
